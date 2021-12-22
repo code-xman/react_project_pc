@@ -1,10 +1,12 @@
-import React, { useMemo, useRef, useEffect, useState } from 'react'
+import React, { useMemo, useRef, useEffect, useState, useCallback } from 'react'
 import cn from 'classnames'
 import { Table } from 'antd';
 
 import './index.less'
 
+// 表格组件
 const TableA = props => {
+  // 列
   const columns = [
     {
       title: '姓名',
@@ -75,6 +77,7 @@ const TableA = props => {
     },
   ];
 
+  // 数据
   const dataSource = useMemo(() => {
     const arr = []
     for (let i = 0; i <40; i++) {
@@ -105,44 +108,111 @@ const TableA = props => {
   )
 }
 
-const ScollDemo = () => {
-  return (
-    <div className='ys-scoll-box'>
-      <div className='ys-scoll'></div>
-    </div>
-  )
+// 递归寻找目标dom 寻找[attr]为val的dom
+const findDomRef = (domObj, attr, val) => {
+  if (!domObj) {
+    return false;
+  }
+  if (domObj[`${attr}`] === val) {
+    return domObj
+  }
+  if (domObj?.childNodes?.length > 0) {
+    return findDomRef(domObj?.childNodes[0], attr, val)
+  }
+  return false;
 }
 
 const ScollTablePage = () => {
+  const refObj = useRef({
+    // 页面高度
+    offsetHeight: 0,
+    // 表格宽度
+    tableWidth: 0,
+    // 表格内容宽度
+    tableContentWidth: 0,
+    // 表格滚动元素
+    tableScrollDom: null,
+  })
+  // 页面ref
   const pageRef = useRef(null)
+  // 滚动条ref
+  const scrollRef = useRef(null)
+  // 目标表格
   const [tableArr, setTableArr] = useState([])
+  // 目标表格的信息 getBoundingClientRect
   const [tableObjArr, setTableObjArr] = useState([])
+  // 判断是否有目标表格
   const [hasYsTable, setHasYsTable] = useState(false)
+  // 是否展示粘滞滚动条
   const [showScoll, setShowScoll] = useState(false)
-  // .getBoundingClientRect()
+
   useEffect(() => {
-    pageRef.current?.childNodes?.forEach(child => {
+    // 获取可视区域的高度offsetHeight
+    refObj.current.offsetHeight = pageRef.current.offsetHeight
+    // 遍历子级 看是否有ys-sticky
+    pageRef.current?.childNodes?.forEach((child, index) => {
       if (child.className.includes('ys-sticky')) {
         if (!hasYsTable) {
           setHasYsTable(true)
         }
-        console.log(`child`, child)
+        // 获取目标表格
         setTableArr([...tableArr, child])
+        // 获取目标表格的信息 getBoundingClientRect
+        setTableObjArr([...tableObjArr, child.getBoundingClientRect()])
+        refObj.current.tableWidth = child.offsetWidth
+        // 获取实际内容表格
+        const table = findDomRef(child, 'nodeName', 'TABLE')
+        refObj.current.tableContentWidth = table.offsetWidth
+        // 获取目标表格的滚动元素
+        refObj.current.tableScrollDom = findDomRef(child, 'className', 'ant-table-content')
       }
     });
   }, [])
-  // console.log(`tableArr`, tableArr)
+  // console.log(`pageRef`, pageRef.current.offsetTop)
+  // console.log(`object`, {refObj: refObj.current ,tableArr, tableObjArr})
 
+  // 页面滚动监听
   const pageScroll = (e) => {
     // console.log(`e`, e.target.scrollTop)
-    // console.log(`object`, tableArr[0].getBoundingClientRect())
-    const objArr = []
-    tableArr.forEach((item, index) => {
-      objArr[index] = item.getBoundingClientRect()
-    })
-    console.log(`objArr`, objArr)
-    setTableObjArr(objArr)
+    // 目标表格可见且其自身滚动条不在可视区的时候，显示粘滞滚动组件
+    // top/bottom 包含了 pageRef.current.offsetTop，所以需要减去
+    if ( e.target.scrollTop > tableObjArr[0].top - refObj.current.offsetHeight - pageRef.current.offsetTop 
+        && e.target.scrollTop < tableObjArr[0].bottom - refObj.current.offsetHeight - pageRef.current.offsetTop ) {
+      // 同步表格的滚动条的scrollLeft和粘滞滚动组件的scrollLeft
+      if (!!scrollRef?.current && scrollRef?.current?.scrollLeft !== refObj?.current?.tableScrollDom?.scrollLeft) {
+        scrollRef.current.scrollLeft = refObj?.current?.tableScrollDom?.scrollLeft
+      }
+      setTimeout(() => {
+        setShowScoll(true)
+      }, 0);
+    } else {
+      setShowScoll(false)
+    }
   }
+  
+  // 粘滞滚动组件
+  const ScollDemo = useCallback( 
+    () => {
+      // 粘滞滚动滚动组件的滚动事件
+      const scroll = (e) => {
+        if (refObj.current.tableScrollDom.scrollLeft === e.target.scrollLeft) {
+          return
+        }
+        // 同步表格的滚动条的scrollLeft和粘滞滚动组件的scrollLeft
+        refObj.current.tableScrollDom.scrollLeft = e.target.scrollLeft
+      }
+      return (
+        <div 
+          ref={scrollRef}
+          className='ys-scoll-box' 
+          style={{ width: `${refObj.current.tableWidth}px` }} 
+          onScroll={scroll}
+        >
+          <div className='ys-scoll' style={{ width: `${refObj.current.tableContentWidth}px` }}></div>
+        </div>
+      )
+    }
+  , [])
 
   return (
     <div className={cn('a-page')} ref={pageRef} onScroll={pageScroll} >
