@@ -4,6 +4,7 @@ export const menuList = [
     id: 'test',
     children: [
       {
+        title: '测试 1',
         name: 'test1',
         id: 'test1',
         src: '/page1',
@@ -15,6 +16,7 @@ export const menuList = [
     id: 'form',
     children: [
       {
+        title: '表格 A',
         name: 'FormA',
         id: 'FormA',
         src: '/form-a/index',
@@ -26,6 +28,7 @@ export const menuList = [
     id: 'table',
     children: [
       {
+        title: '粘滞滚动条表格',
         name: 'StickyScrollTable',
         id: 'StickyScrollTable',
         src: '/sticky-scroll-table/index',
@@ -34,5 +37,4 @@ export const menuList = [
   },
 ] 
 
-const aaa = 1
-export default { menuList, aaa }
+export default { menuList }

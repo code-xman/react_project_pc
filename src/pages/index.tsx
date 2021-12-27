@@ -1,6 +1,6 @@
 import './css/common.less'
 import './index.less';
-import MyMenu from '@/pages/home/myMenu'
+import MyMenu from '@/pages/menu/myMenu'
 import cn from 'classnames';
 
 export default (props:any) => {
