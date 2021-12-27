@@ -151,6 +151,7 @@ const ScollTablePage = () => {
     refObj.current.offsetHeight = pageRef.current.offsetHeight
     // 遍历子级 看是否有ys-sticky
     pageRef.current?.childNodes?.forEach((child, index) => {
+      // 有ys-sticky 则获取相关数据
       if (child.className.includes('ys-sticky')) {
         if (!hasYsTable) {
           setHasYsTable(true)
@@ -216,13 +217,13 @@ const ScollTablePage = () => {
 
   return (
     <div className={cn('a-page')} ref={pageRef} onScroll={pageScroll} >
-      <div className={cn('a-part')}></div>
-      <div className={cn('a-part')}></div>
-      <div className={cn('a-part')}></div>
+      <div className={cn('a-part')}>其他不重要的内容</div>
+      <div className={cn('a-part')}>其他不重要的内容</div>
+      <div className={cn('a-part')}>其他不重要的内容</div>
       <TableA className={cn('a-table ys-sticky')} ></TableA>
-      <div className={cn('a-part')}></div>
-      <div className={cn('a-part')}></div>
-      <div className={cn('a-part')}></div>
+      <div className={cn('a-part')}>其他不重要的内容</div>
+      <div className={cn('a-part')}>其他不重要的内容</div>
+      <div className={cn('a-part')}>其他不重要的内容</div>
       { hasYsTable && showScoll && <ScollDemo />}
     </div>
   )
