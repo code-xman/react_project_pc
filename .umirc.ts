@@ -14,7 +14,7 @@ export default defineConfig({
         { path: '/form-a', component: '@/pages/pageList/form-a', routes: [
           { path: '/index', component: 'index' }
         ]},
-        { path: '/table-a', component: '@/pages/pageList/table-a', routes: [
+        { path: '/sticky-scroll-table', component: '@/pages/pageList/sticky-scroll-table', routes: [
           { path: '/index', component: 'index' }
         ]},
       ]

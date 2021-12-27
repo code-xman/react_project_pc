@@ -26,9 +26,9 @@ export const menuList = [
     id: 'table',
     children: [
       {
-        name: 'TableA',
-        id: 'TableA',
-        src: '/table-a/index',
+        name: 'StickyScrollTable',
+        id: 'StickyScrollTable',
+        src: '/sticky-scroll-table/index',
       },
     ]
   },
