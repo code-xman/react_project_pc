@@ -12,6 +12,18 @@ export const menuList = [
     ]
   },
   {
+    name: 'react hooks',
+    id: 'react-hooks',
+    children: [
+      {
+        title: 'useState',
+        name: 'useState',
+        id: 'useState',
+        src: '/react-hooks/useState',
+      },
+    ]
+  },
+  {
     name: '表单 Demo',
     id: 'form',
     children: [

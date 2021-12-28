@@ -9,7 +9,7 @@ export default (props:any) => {
       <h1 className={cn('top-title')}>YS Demo</h1>
       <div className={cn('container')} >
         <MyMenu></MyMenu>
-        <div className={cn('page-box', 'box-border')}>
+        <div className={cn('page-box', 'box-border', 'flex')}>
           { props.children }
         </div>
       </div>

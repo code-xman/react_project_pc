@@ -94,7 +94,7 @@ const FormA = () => {
                 })}
               </Select>
             } else if (formItem.name === 'checkout') {
-              formItemEle = <Checkbox.Group buttonStyle="solid" className={cn('flex-1')} >
+              formItemEle = <Checkbox.Group className={cn('flex-1')} >
                   {formItem.options.map((option) => {
                     return <Checkbox value={option.value} key={option.value} >{option.text}</Checkbox>
                   })}
@@ -127,11 +127,11 @@ const FormA = () => {
    
 
   return (
-    <div className={cn('flex-all')}>
+    <>
       <LPart className={cn('flex-all', 'flex-wrap', 'box-border', 'l-part')}></LPart>
       <CPart className={cn('flex-1', 'box-border', 'c-part')}></CPart>
       <div className={cn('r-part', 'box-border')}>3</div>
-    </div>
+    </>
   )
 }
 

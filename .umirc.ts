@@ -11,6 +11,7 @@ export default defineConfig({
       routes: [
         { path: '/', component: '@/pages/pageList/home.jsx' },
         { path: '/page1', component: '@/pages/pageList/page1.jsx' },
+        { path: '/react-hooks/useState', component: '@/pages/pageList/react-hooks/useState' },
         { path: '/form-a', component: '@/pages/pageList/form-a', routes: [
           { path: '/index', component: 'index' }
         ]},
