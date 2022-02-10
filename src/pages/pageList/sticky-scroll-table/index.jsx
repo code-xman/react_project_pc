@@ -80,7 +80,7 @@ const TableA = props => {
   // 数据
   const dataSource = useMemo(() => {
     const arr = []
-    for (let i = 0; i <40; i++) {
+    for (let i = 0; i <5; i++) {
       arr.push({
         key: 'x00'+i,
         name: 'x00'+i,
@@ -218,12 +218,13 @@ const ScollTablePage = () => {
   return (
     <div className={cn('a-page')} ref={pageRef} onScroll={pageScroll} >
       <div className={cn('a-part')}>其他不重要的内容</div>
-      <div className={cn('a-part')}>其他不重要的内容</div>
-      <div className={cn('a-part')}>其他不重要的内容</div>
+      {/* <div className={cn('a-part')}>其他不重要的内容</div>
+      <div className={cn('a-part')}>其他不重要的内容</div> */}
       <TableA className={cn('a-table ys-sticky')} ></TableA>
       <div className={cn('a-part')}>其他不重要的内容</div>
       <div className={cn('a-part')}>其他不重要的内容</div>
       <div className={cn('a-part')}>其他不重要的内容</div>
+      {/* <ScollDemo /> */}
       { hasYsTable && showScoll && <ScollDemo />}
     </div>
   )

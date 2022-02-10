@@ -21,6 +21,12 @@ export const menuList = [
         id: 'useState',
         src: '/react-hooks/useState',
       },
+      {
+        title: 'useEffect',
+        name: 'useEffect',
+        id: 'useEffect',
+        src: '/react-hooks/useEffect',
+      },
     ]
   },
   {
