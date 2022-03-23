@@ -9,7 +9,7 @@ export const menuList = [
         id: 'test1',
         src: '/page1',
       },
-    ]
+    ],
   },
   {
     name: 'react hooks',
@@ -27,7 +27,7 @@ export const menuList = [
         id: 'useEffect',
         src: '/react-hooks/useEffect',
       },
-    ]
+    ],
   },
   {
     name: '表单 Demo',
@@ -39,7 +39,7 @@ export const menuList = [
         id: 'FormA',
         src: '/form-a/index',
       },
-    ]
+    ],
   },
   {
     name: '表格 Demo',
@@ -51,8 +51,20 @@ export const menuList = [
         id: 'StickyScrollTable',
         src: '/sticky-scroll-table/index',
       },
-    ]
+    ],
   },
-] 
+  {
+    name: 'Editor Demo',
+    id: 'Editor',
+    children: [
+      {
+        title: 'Editor',
+        name: 'Editor',
+        id: 'Editor1',
+        src: '/editor/index',
+      },
+    ],
+  },
+];
 
-export default { menuList }
+export default { menuList };
