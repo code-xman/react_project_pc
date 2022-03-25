@@ -29,6 +29,14 @@ const config = defineConfig({
           component: '@/pages/pageList/react-hooks/useContext',
         },
         {
+          path: '/react-hooks/useReducer',
+          component: '@/pages/pageList/react-hooks/useReducer',
+        },
+        {
+          path: '/react-hooks/CallbackMemo',
+          component: '@/pages/pageList/react-hooks/CallbackMemo',
+        },
+        {
           path: '/form-a',
           component: '@/pages/pageList/form-a',
           routes: [{ path: '/index', component: 'index' }],

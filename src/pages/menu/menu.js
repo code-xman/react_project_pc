@@ -39,6 +39,18 @@ export const menuList = [
         id: 'useContext',
         src: '/react-hooks/useContext',
       },
+      {
+        title: 'useReducer',
+        name: 'useReducer',
+        id: 'useReducer',
+        src: '/react-hooks/useReducer',
+      },
+      {
+        title: 'CallbackMemo',
+        name: 'CallbackMemo',
+        id: 'CallbackMemo',
+        src: '/react-hooks/CallbackMemo',
+      },
     ],
   },
   {
