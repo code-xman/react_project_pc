@@ -21,6 +21,14 @@ const config = defineConfig({
           component: '@/pages/pageList/react-hooks/useEffect',
         },
         {
+          path: '/react-hooks/myHook',
+          component: '@/pages/pageList/react-hooks/myHook',
+        },
+        {
+          path: '/react-hooks/useContext',
+          component: '@/pages/pageList/react-hooks/useContext',
+        },
+        {
           path: '/form-a',
           component: '@/pages/pageList/form-a',
           routes: [{ path: '/index', component: 'index' }],
