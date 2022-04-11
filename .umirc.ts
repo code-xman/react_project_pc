@@ -37,9 +37,12 @@ const config = defineConfig({
           component: '@/pages/pageList/react-hooks/CallbackMemo',
         },
         {
-          path: '/form-a',
-          component: '@/pages/pageList/form-a',
-          routes: [{ path: '/index', component: 'index' }],
+          path: '/form-demo/form-custom',
+          component: '@/pages/pageList/form-demo/form-custom',
+        },
+        {
+          path: '/form-demo/form-base',
+          component: '@/pages/pageList/form-demo/form-base',
         },
         {
           path: '/sticky-scroll-table',

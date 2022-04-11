@@ -58,10 +58,16 @@ export const menuList = [
     id: 'form',
     children: [
       {
-        title: '表格 A',
-        name: 'FormA',
-        id: 'FormA',
-        src: '/form-a/index',
+        title: '表格 custom',
+        name: 'FormCustom',
+        id: 'FormCustom',
+        src: '/form-demo/form-custom',
+      },
+      {
+        title: '表格 Base',
+        name: 'FormBase',
+        id: 'FormBase',
+        src: '/form-demo/form-base',
       },
     ],
   },
