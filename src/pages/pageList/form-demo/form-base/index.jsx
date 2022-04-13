@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import cn from 'classnames';
 import { Form, Input, Button, Select, Table } from 'antd';
 const { Option } = Select;
@@ -12,11 +12,12 @@ const FormBase = () => {
   const OneJudges = (props) => {
     const { index } = props;
     return (
-      <div>
+      <div className={cn('judges-items')}>
         <Form.Item
           label="姓名"
           key={'judgesName'}
           name={['judges', index, 'name']}
+          className={cn('judges-item')}
         >
           <Input></Input>
         </Form.Item>
@@ -24,6 +25,7 @@ const FormBase = () => {
           label="性别"
           key={'judgesSex'}
           name={['judges', index, 'sex']}
+          className={cn('judges-item')}
         >
           <Select>
             <Option value="man">男</Option>
@@ -45,9 +47,25 @@ const FormBase = () => {
 
   const columns = [
     {
+      title: '编号',
+      dataIndex: 'key',
+      render: (txt, row, index) => {
+        const parent = ['person', index];
+        return (
+          <Form.Item
+            name={[...parent, 'key']}
+            colon={false}
+            key={'key'}
+            initialValue={row.key}
+          >
+            <Input bordered={false} disabled className={cn('person-key')} />
+          </Form.Item>
+        );
+      },
+    },
+    {
       title: '姓名',
       dataIndex: 'name',
-      key: 'name',
       render: (txt, row, index) => {
         const parent = ['person', index];
         return (
@@ -60,7 +78,6 @@ const FormBase = () => {
     {
       title: '年龄',
       dataIndex: 'age',
-      key: 'age',
       render: (txt, row, index) => {
         const parent = ['person', index];
         return (
@@ -73,7 +90,6 @@ const FormBase = () => {
     {
       title: '性别',
       dataIndex: 'sex',
-      key: 'sex',
       width: 150,
       render: (txt, row, index) => {
         const parent = ['person', index];
@@ -87,6 +103,18 @@ const FormBase = () => {
         );
       },
     },
+    {
+      title: '操作',
+      dataIndex: 'actions',
+      width: 80,
+      render: (txt, row, index) => {
+        return (
+          <Button type="link" onClick={() => delPerson(row.key)}>
+            删除
+          </Button>
+        );
+      },
+    },
   ];
 
   const addPerson = () => {
@@ -95,9 +123,19 @@ const FormBase = () => {
       key: new Date().getTime(),
       name: '',
       age: '',
-      sex: '',
+      sex: undefined,
     };
-    setDataSource([...dataSource, aPerson]);
+    const tableData = form.getFieldValue('person') || [];
+    const res = [...tableData, aPerson];
+    form.setFieldsValue({ person: res });
+    setDataSource(res);
+  };
+
+  const delPerson = (delKey) => {
+    const tableData = form.getFieldValue('person') || [];
+    const res = tableData.filter((item) => item.key !== delKey);
+    form.setFieldsValue({ person: res });
+    setDataSource(res);
   };
 
   const getFormData = () => {
@@ -113,7 +151,13 @@ const FormBase = () => {
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 20 }}
       >
-        <Form.Item label="比赛名称" key="name" name="name">
+        <Form.Item
+          label="比赛名称"
+          key="name"
+          name="name"
+          labelCol={{ span: 2 }}
+          wrapperCol={{ span: 22 }}
+        >
           <Input />
         </Form.Item>
         <div>
