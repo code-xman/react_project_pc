@@ -54,6 +54,16 @@ const config = defineConfig({
           component: '@/pages/pageList/Editor',
           routes: [{ path: '/index', component: 'index' }],
         },
+        {
+          path: '/func/lodash/throttle',
+          component: '@/pages/pageList/func/lodash/throttle',
+          routes: [{ path: '/index', component: 'index' }],
+        },
+        {
+          path: '/func/lodash/debounce',
+          component: '@/pages/pageList/func/lodash/debounce',
+          routes: [{ path: '/index', component: 'index' }],
+        },
       ],
     },
   ],

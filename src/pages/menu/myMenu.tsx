@@ -4,9 +4,41 @@ import { menuList } from './menu.js';
 
 const { SubMenu } = Menu;
 
+interface MenuItem {
+  id: string;
+  name: string;
+  src?: string;
+  children?: MenuItem[];
+}
+
 const MyMenu = () => {
-  const menuClick = (src: string) => {
-    history.push(src);
+  const menuClick = (src?: string) => {
+    src && history.push(src);
+  };
+
+  // 递归处理菜单
+  const MySubMenu = (props: { item: MenuItem }) => {
+    const { item } = props;
+    return (
+      <SubMenu key={item.id} title={item.name}>
+        {item.children &&
+          item.children.map((cItem: MenuItem) => {
+            if (!cItem.children) {
+              return (
+                <Menu.Item key={cItem.id} onClick={() => menuClick(cItem.src)}>
+                  {cItem.name}
+                </Menu.Item>
+              );
+            } else {
+              return (
+                // MySubMenu 这里如果按组件使用会导致没有key
+                // <MySubMenu key={cItem.id} item={cItem}></MySubMenu>
+                MySubMenu({ item: cItem })
+              );
+            }
+          })}
+      </SubMenu>
+    );
   };
 
   return (
@@ -21,31 +53,13 @@ const MyMenu = () => {
         }}
       >
         {menuList.map(
-          (item: {
-            id: string;
-            name: string;
-            children: { id: string; name: string; src: string }[];
-          }) => {
-            // console.log('item :>> ', item);
-            return (
-              <SubMenu key={item.id} title={item.name}>
-                {item.children &&
-                  item.children.map(
-                    (cItem: { id: string; name: string; src: string }) => {
-                      // console.log('cItem :>> ', cItem);
-                      return (
-                        <Menu.Item
-                          key={cItem.id}
-                          onClick={() => menuClick(cItem.src)}
-                        >
-                          {cItem.name}
-                        </Menu.Item>
-                      );
-                    },
-                  )}
-              </SubMenu>
-            );
-          },
+          (item: MenuItem) => MySubMenu({ item }),
+          // MySubMenu 这里如果按组件使用会导致没有key
+          // (item: MenuItem) => {
+          //   return (
+          //     <MySubMenu key={item.id} item={item}></MySubMenu>
+          //   );
+          // }
         )}
       </Menu>
     </div>

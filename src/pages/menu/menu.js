@@ -95,6 +95,31 @@ export const menuList = [
       },
     ],
   },
+  {
+    name: 'func Demo',
+    id: 'func',
+    children: [
+      {
+        title: 'lodash',
+        name: 'lodash',
+        id: 'lodash',
+        children: [
+          {
+            title: 'throttle',
+            name: 'throttle',
+            id: 'throttle',
+            src: '/func/lodash/throttle',
+          },
+          {
+            title: 'debounce',
+            name: 'debounce',
+            id: 'debounce',
+            src: '/func/lodash/debounce',
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export default { menuList };
