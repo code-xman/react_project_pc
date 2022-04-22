@@ -55,6 +55,11 @@ const config = defineConfig({
           routes: [{ path: '/index', component: 'index' }],
         },
         {
+          path: '/Dnd',
+          component: '@/pages/pageList/dnd',
+          routes: [{ path: '/index', component: 'index' }],
+        },
+        {
           path: '/func/lodash/throttle',
           component: '@/pages/pageList/func/lodash/throttle',
           routes: [{ path: '/index', component: 'index' }],

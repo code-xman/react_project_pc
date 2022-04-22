@@ -96,6 +96,18 @@ export const menuList = [
     ],
   },
   {
+    name: 'Dnd Demo',
+    id: 'Dnd',
+    children: [
+      {
+        title: 'Dnd',
+        name: 'Dnd',
+        id: 'Dnd1',
+        src: '/dnd/index',
+      },
+    ],
+  },
+  {
     name: 'func Demo',
     id: 'func',
     children: [
