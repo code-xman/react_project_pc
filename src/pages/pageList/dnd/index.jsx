@@ -32,20 +32,28 @@ const Dnd = () => {
   ];
   const [todos, setTodos] = useState([...testData]);
 
+  // 拖拽开始回调
   const onDragStart = () => {};
+  // 拖拽中的回调
   const onDragUpdate = () => {};
-  // FIXME: 待优化，拖动卡，有bug
+
+  // 拖拽结束时的回调
   const onDragEnd = (result) => {
     console.log('result', result);
+    /**
+     * source: 拖动目标来源的位置信息
+     * destination: 拖动目标最终放置的位置信息
+     */
     const { source, destination } = result;
     if (!destination) {
       return;
     }
     let arr;
     arr = Array.from(todos);
-    console.log(111111122, arr);
+    console.log('arr 1111111', arr);
     const [remove] = arr.splice(source.index, 1);
     arr.splice(destination.index, 0, remove);
+    console.log('arr 2222222', arr);
     setTodos(arr);
   };
   return (
@@ -62,7 +70,8 @@ const Dnd = () => {
             className={cn('droppable-box')}
           >
             {todos.map((t, i) => (
-              <Draggable draggableId={t.id} key={i} index={i}>
+              // draggableId 和 key 应为 string；
+              <Draggable draggableId={t.id} key={t.id} index={i}>
                 {(p) => (
                   <div
                     key={t.id}
