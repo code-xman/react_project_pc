@@ -10,7 +10,7 @@ const config = defineConfig({
       path: '/',
       component: '@/pages/index.tsx',
       routes: [
-        { path: '/', component: '@/pages/pageList/home.jsx' },
+        { path: '/home', component: '@/pages/pageList/home.jsx' },
         { path: '/page1', component: '@/pages/pageList/page1.jsx' },
         {
           path: '/react-hooks/useState',
@@ -68,6 +68,18 @@ const config = defineConfig({
           path: '/func/lodash/debounce',
           component: '@/pages/pageList/func/lodash/debounce',
           routes: [{ path: '/index', component: 'index' }],
+        },
+        {
+          path: '/iframe-page/iframe1',
+          component: '@/pages/pageList/iframe-page/iframe1',
+        },
+        {
+          path: '/iframe-page/iframe2',
+          component: '@/pages/pageList/iframe-page/iframe2',
+        },
+        {
+          path: '/ts/ts-test1',
+          component: '@/pages/pageList/ts/ts-test1',
         },
       ],
     },

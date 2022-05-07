@@ -132,6 +132,30 @@ export const menuList = [
       },
     ],
   },
+  {
+    name: 'iframe Demo',
+    id: 'iframe',
+    children: [
+      {
+        title: 'iframe1',
+        name: 'iframe1',
+        id: 'iframe1',
+        src: '/iframe-page/iframe1',
+      },
+    ],
+  },
+  {
+    name: 'TS Demo',
+    id: 'TS',
+    children: [
+      {
+        title: 'ts1',
+        name: 'ts1',
+        id: 'ts1',
+        src: '/ts/ts-test1',
+      },
+    ],
+  },
 ];
 
 export default { menuList };
