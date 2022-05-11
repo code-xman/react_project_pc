@@ -3,9 +3,24 @@ import cn from 'classnames';
 import './ts-test1.less';
 
 interface ObjType {
+  // readonly 为只读属性，? 为可选属性
+  readonly str?: string;
   name: string;
   type: string;
   id: string;
+}
+
+// omit 是排除掉 ObjType 的 name 属性
+type ObjA = Omit<ObjType, 'name'>;
+// omit 多个用 ‘|’ 隔开，后面可以用 & 添加自己的属性
+type ObjB = Omit<ObjType, 'name' | 'type'> & {
+  b: string;
+};
+// pick 是去选择 ObjType 的 name 属性，多个用 ‘|’ 隔开，后面可以用 & 添加自己的属性
+type ObjC = Pick<ObjType, 'name'>;
+
+// FruitsObjType 继承了 ObjType 的 name type id，又新增了attr
+interface FruitsObjType extends ObjType {
   attr: {
     price: number;
     weight: number;
@@ -13,7 +28,7 @@ interface ObjType {
   };
 }
 
-const Card = ({ obj }: { obj: ObjType }) => {
+const Card = ({ obj }: { obj: FruitsObjType }) => {
   return (
     <div className={cn('fruits-card', 'box-border')}>
       <p>名称：{obj?.name}</p>
@@ -27,7 +42,19 @@ const Card = ({ obj }: { obj: ObjType }) => {
 };
 
 const Index = () => {
-  const [objs, setObjs] = useState<ObjType[]>([]);
+  const A: ObjA = {
+    type: '',
+    id: '',
+  };
+  const B: ObjB = {
+    id: '',
+    b: '',
+  };
+  const C: ObjC = {
+    name: '',
+  };
+
+  const [objs, setObjs] = useState<FruitsObjType[]>([]);
   useMemo(() => {
     setObjs([
       {
