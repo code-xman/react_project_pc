@@ -202,7 +202,11 @@ const FormBase = () => {
       // console.log('data :>> ', data);
       console.log('res :>> ', res);
       if (res) {
-        setData(res);
+        setData({
+          ...res,
+          judges: res.judges || [],
+          person: res.person || [],
+        });
       }
     });
   };
