@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import cn from 'classnames';
-import { Form, Input, Button, Select, Table } from 'antd';
+import { Form, Input, Button, Select, Table, Checkbox } from 'antd';
 const { Option } = Select;
 
 import './index.less';
@@ -22,6 +22,13 @@ const FormBase = () => {
     ],
   };
   const [data, setData] = useState(testData);
+
+  const limitChange = (val) => {
+    if (val.length > 0) {
+      const res = val[val.length - 1];
+      form.setFieldsValue({ limit: [res] });
+    }
+  };
 
   const OneJudges = (props) => {
     const { index } = props;
@@ -228,6 +235,19 @@ const FormBase = () => {
           rules={[{ required: true, message: '必填' }]}
         >
           <Input />
+        </Form.Item>
+        <Form.Item
+          label="条件限制"
+          key="limit"
+          name="limit"
+          labelCol={{ span: 2 }}
+          wrapperCol={{ span: 22 }}
+          tooltip={'最多有一条条件限制'}
+        >
+          <Checkbox.Group onChange={limitChange}>
+            <Checkbox value={'height'}>身高限制</Checkbox>
+            <Checkbox value={'weight'}>体重限制</Checkbox>
+          </Checkbox.Group>
         </Form.Item>
         <div>
           评委
