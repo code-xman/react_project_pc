@@ -2,6 +2,46 @@ import React, { useMemo, useState } from 'react';
 import cn from 'classnames';
 import './ts-test1.less';
 
+// A start ---------------------------------------------------------------
+interface ObjX {
+  x: string;
+}
+interface ObjY {
+  y: number;
+}
+
+interface ObjZ<T = ObjX | ObjY> {
+  z: T;
+}
+
+const zx: ObjZ<ObjX> = {
+  z: { x: 'xxx' },
+};
+const zy: ObjZ<ObjY> = {
+  z: { y: 111 },
+};
+
+// A end -----------------------------------------------------------------
+
+// B start ---------------------------------------------------------------
+interface Identities<T, V> {
+  name: T;
+  value: V;
+}
+const identA: Identities<string, string> = {
+  name: 'identA',
+  value: 'identA',
+};
+const identB: Identities<string, number> = {
+  name: 'identB',
+  value: 2,
+};
+const identity = <T, V>(name: T, value: V): Identities<T, V> => {
+  return { name, value };
+};
+console.log('identity :>>', identity(identA.name, identA.value));
+// B end -----------------------------------------------------------------
+
 interface ObjType {
   // readonly 为只读属性，? 为可选属性
   readonly str?: string;
@@ -27,24 +67,6 @@ interface FruitsObjType extends ObjType {
     source: string;
   };
 }
-
-interface ObjX {
-  x: string;
-}
-interface ObjY {
-  y: number;
-}
-
-interface ObjZ<T = ObjX | ObjY> {
-  z: T;
-}
-
-const zx: ObjZ<ObjX> = {
-  z: { x: 'xxx' },
-};
-const zy: ObjZ<ObjY> = {
-  z: { y: 111 },
-};
 
 const Card = ({ obj }: { obj: FruitsObjType }) => {
   return (
