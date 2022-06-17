@@ -1,8 +1,9 @@
 import './css/common.less';
 import './index.less';
 import MyMenu from '@/pages/menu/myMenu';
+import Fab, { FabProps } from '@/pages/pageList/fab';
 import cn from 'classnames';
-import { ReactChild, ReactFragment, ReactPortal } from 'react';
+import { ReactChild, ReactFragment, ReactPortal, useState } from 'react';
 
 export default (props: {
   children:
@@ -13,14 +14,26 @@ export default (props: {
     | null
     | undefined;
 }) => {
+  // 是否全屏
+  const [fullFalg, setFullFalg] = useState(false);
+  // 左侧菜单的attr
+  const myMenuAttr = { fullFalg };
+  // fab的attr
+  const fabAttr: FabProps = { fullFalg, setFullFalg };
   return (
     <div className={cn('ys-layout')}>
-      <h1 className={cn('top-title')}>YS Demo</h1>
-      <div className={cn('container')}>
-        <MyMenu></MyMenu>
+      <h1 className={cn('top-title')} style={{ height: fullFalg ? 0 : 40 }}>
+        YS Demo
+      </h1>
+      <div
+        className={cn('container')}
+        style={{ height: fullFalg ? 'calc(100% - 4px)' : 'calc(100% - 44px)' }}
+      >
+        <MyMenu {...myMenuAttr}></MyMenu>
         <div className={cn('page-box', 'box-border', 'flex')}>
           {props.children}
         </div>
+        <Fab {...fabAttr} />
       </div>
     </div>
   );

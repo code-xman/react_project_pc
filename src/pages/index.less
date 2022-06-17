@@ -1,5 +1,5 @@
 .ys-layout {
-  height: 100vh; 
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -10,12 +10,15 @@
   padding: 0 10px;
   background: #007cfb;
   color: #fff;
+  transition: height 0.2s;
 }
 
 .container {
+  position: relative;
   display: flex;
   width: 100%;
-  height: calc(100% - 44px)
+  height: calc(100% - 44px);
+  transition: all 0.2s;
 }
 
 .page-box {

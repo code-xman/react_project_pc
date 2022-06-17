@@ -51,6 +51,18 @@ export const menuList = [
         id: 'CallbackMemo',
         src: '/react-hooks/CallbackMemo',
       },
+      {
+        title: 'forwardRef',
+        name: 'forwardRef',
+        id: 'forwardRef',
+        src: '/react-hooks/forwardRef',
+      },
+      {
+        title: 'useImperativeHandle',
+        name: 'useImperativeHandle',
+        id: 'useImperativeHandle',
+        src: '/react-hooks/useImperativeHandle',
+      },
     ],
   },
   {

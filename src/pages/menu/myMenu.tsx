@@ -11,7 +11,12 @@ interface MenuItem {
   children?: MenuItem[];
 }
 
-const MyMenu = () => {
+interface MyMenuProps {
+  fullFalg: boolean;
+}
+
+const MyMenu = (props: MyMenuProps) => {
+  const { fullFalg } = props;
   const menuClick = (src?: string) => {
     src && history.push(src);
   };
@@ -46,10 +51,11 @@ const MyMenu = () => {
       <Menu
         mode="inline"
         style={{
-          width: 256,
+          width: fullFalg ? 0 : 256,
           height: '100%',
           overflowY: 'auto',
           overflowX: 'hidden',
+          transition: 'width .2s',
         }}
       >
         {menuList.map(
