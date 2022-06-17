@@ -28,6 +28,24 @@ interface FruitsObjType extends ObjType {
   };
 }
 
+interface ObjX {
+  x: string;
+}
+interface ObjY {
+  y: number;
+}
+
+interface ObjZ<T = ObjX | ObjY> {
+  z: T;
+}
+
+const zx: ObjZ<ObjX> = {
+  z: { x: 'xxx' },
+};
+const zy: ObjZ<ObjY> = {
+  z: { y: 111 },
+};
+
 const Card = ({ obj }: { obj: FruitsObjType }) => {
   return (
     <div className={cn('fruits-card', 'box-border')}>
