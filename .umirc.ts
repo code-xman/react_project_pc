@@ -37,6 +37,14 @@ const config = defineConfig({
           component: '@/pages/pageList/react-hooks/CallbackMemo',
         },
         {
+          path: '/react-hooks/forwardRef',
+          component: '@/pages/pageList/react-hooks/forwardRef',
+        },
+        {
+          path: '/react-hooks/useImperativeHandle',
+          component: '@/pages/pageList/react-hooks/useImperativeHandle',
+        },
+        {
           path: '/form-demo/form-custom',
           component: '@/pages/pageList/form-demo/form-custom',
         },
