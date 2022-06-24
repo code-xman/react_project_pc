@@ -10,6 +10,17 @@ interface ObjY {
   y: number;
 }
 
+type ObjXY = ObjX &
+  ObjY & {
+    xy: string | number;
+  };
+
+const xy: ObjXY = {
+  x: '',
+  y: 1,
+  xy: '',
+};
+
 interface ObjZ<T = ObjX | ObjY> {
   z: T;
 }

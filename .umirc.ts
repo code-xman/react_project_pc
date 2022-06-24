@@ -49,8 +49,8 @@ const config = defineConfig({
           component: '@/pages/pageList/form-demo/form-custom',
         },
         {
-          path: '/form-demo/form-base',
-          component: '@/pages/pageList/form-demo/form-base',
+          path: '/form-demo/form-1',
+          component: '@/pages/pageList/form-demo/form-1',
         },
         {
           path: '/sticky-scroll-table',
