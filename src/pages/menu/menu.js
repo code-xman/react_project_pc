@@ -1,173 +1,192 @@
-export const menuList = [
+import { history } from 'umi';
+
+// 菜单数据
+const menuData = [
   {
-    name: 'test',
-    id: 'test',
+    label: 'test',
+    key: 'test',
     children: [
       {
-        title: '测试 1',
-        name: 'test1',
-        id: 'test1',
-        src: '/page1',
+        label: 'test1',
+        key: 'test1',
+        src: '/pageList/page1',
       },
     ],
   },
   {
-    name: 'react hooks',
-    id: 'react-hooks',
+    label: 'react hooks',
+    key: 'react-hooks',
     children: [
       {
-        title: 'useState',
-        name: 'useState',
-        id: 'useState',
-        src: '/react-hooks/useState',
+        label: 'useState',
+        key: 'useState',
+        src: '/pageList/react-hooks/useState',
       },
       {
-        title: 'useEffect',
-        name: 'useEffect',
-        id: 'useEffect',
-        src: '/react-hooks/useEffect',
+        label: 'useEffect',
+        key: 'useEffect',
+        src: '/pageList/react-hooks/useEffect',
       },
       {
-        title: 'myHook',
-        name: 'myHook',
-        id: 'myHook',
-        src: '/react-hooks/myHook',
+        label: 'myHook',
+        key: 'myHook',
+        src: '/pageList/react-hooks/myHook',
       },
       {
-        title: 'useContext',
-        name: 'useContext',
-        id: 'useContext',
-        src: '/react-hooks/useContext',
+        label: 'useContext',
+        key: 'useContext',
+        src: '/pageList/react-hooks/useContext',
       },
       {
-        title: 'useReducer',
-        name: 'useReducer',
-        id: 'useReducer',
-        src: '/react-hooks/useReducer',
+        label: 'useReducer',
+        key: 'useReducer',
+        src: '/pageList/react-hooks/useReducer',
       },
       {
-        title: 'CallbackMemo',
-        name: 'CallbackMemo',
-        id: 'CallbackMemo',
-        src: '/react-hooks/CallbackMemo',
+        label: 'CallbackMemo',
+        key: 'CallbackMemo',
+        src: '/pageList/react-hooks/CallbackMemo',
       },
       {
-        title: 'forwardRef',
-        name: 'forwardRef',
-        id: 'forwardRef',
-        src: '/react-hooks/forwardRef',
+        label: 'forwardRef',
+        key: 'forwardRef',
+        src: '/pageList/react-hooks/forwardRef',
       },
       {
-        title: 'useImperativeHandle',
-        name: 'useImperativeHandle',
-        id: 'useImperativeHandle',
-        src: '/react-hooks/useImperativeHandle',
+        label: 'useImperativeHandle',
+        key: 'useImperativeHandle',
+        src: '/pageList/react-hooks/useImperativeHandle',
       },
     ],
   },
   {
-    name: '表单 Demo',
-    id: 'form',
+    label: '表单 Demo',
+    key: 'form',
     children: [
       {
-        title: '表格 custom',
-        name: 'FormCustom',
-        id: 'FormCustom',
-        src: '/form-demo/form-custom',
+        label: 'FormCustom',
+        key: 'FormCustom',
+        src: '/pageList/form-demo/form-custom',
       },
       {
-        title: '表格-1',
-        name: 'Form-1',
-        id: 'Form-1',
-        src: '/form-demo/form-1',
+        label: 'Form-1',
+        key: 'Form-1',
+        src: '/pageList/form-demo/form-1',
       },
     ],
   },
   {
-    name: '表格 Demo',
-    id: 'table',
+    label: '表格 Demo',
+    key: 'table',
     children: [
       {
-        title: '粘滞滚动条表格',
-        name: 'StickyScrollTable',
-        id: 'StickyScrollTable',
-        src: '/sticky-scroll-table/index',
+        label: 'StickyScrollTable',
+        key: 'StickyScrollTable',
+        src: '/pageList/sticky-scroll-table',
       },
     ],
   },
   {
-    name: 'Editor Demo',
-    id: 'Editor',
+    label: 'Editor Demo',
+    key: 'Editor',
     children: [
       {
-        title: 'Editor',
-        name: 'Editor',
-        id: 'Editor1',
-        src: '/editor/index',
+        label: 'Editor',
+        key: 'Editor1',
+        src: '/pageList/editor',
       },
     ],
   },
   {
-    name: 'Dnd Demo',
-    id: 'Dnd',
+    label: 'Dnd Demo',
+    key: 'Dnd',
     children: [
       {
-        title: 'Dnd',
-        name: 'Dnd',
-        id: 'Dnd1',
-        src: '/dnd/index',
+        label: 'Dnd',
+        key: 'Dnd1',
+        src: '/pageList/dnd',
       },
     ],
   },
   {
-    name: 'func Demo',
-    id: 'func',
+    label: 'func Demo',
+    key: 'func',
     children: [
       {
-        title: 'lodash',
-        name: 'lodash',
-        id: 'lodash',
+        label: 'lodash',
+        key: 'lodash',
         children: [
           {
-            title: 'throttle',
-            name: 'throttle',
-            id: 'throttle',
-            src: '/func/lodash/throttle',
+            label: 'throttle',
+            key: 'throttle',
+            src: '/pageList/func/lodash/throttle',
           },
           {
-            title: 'debounce',
-            name: 'debounce',
-            id: 'debounce',
-            src: '/func/lodash/debounce',
+            label: 'debounce',
+            key: 'debounce',
+            src: '/pageList/func/lodash/debounce',
           },
         ],
       },
     ],
   },
   {
-    name: 'iframe Demo',
-    id: 'iframe',
+    label: 'iframe Demo',
+    key: 'iframe',
     children: [
       {
-        title: 'iframe1',
-        name: 'iframe1',
-        id: 'iframe1',
-        src: '/iframe-page/iframe1',
+        label: 'iframe1',
+        key: 'iframe1',
+        src: '/pageList/iframe-page/iframe1',
       },
     ],
   },
   {
-    name: 'TS Demo',
-    id: 'TS',
+    label: 'TS Demo',
+    key: 'TS',
     children: [
       {
-        title: 'ts1',
-        name: 'ts1',
-        id: 'ts1',
-        src: '/ts/ts-test1',
+        label: 'ts1',
+        key: 'ts1',
+        src: '/pageList/ts/ts-test1',
+      },
+    ],
+  },
+  {
+    label: 'Promise Demo',
+    key: 'Promise',
+    children: [
+      {
+        label: 'promise-1',
+        key: 'promise-1',
+        src: '/pageList/promise/demo-1',
       },
     ],
   },
 ];
 
-export default { menuList };
+// 处理菜单menu
+const formatMenu = (menu) => {
+  const { label, src } = menu;
+  // 没有children，添加title、onclick
+  if (!menu.children) {
+    return {
+      title: label,
+      onClick: () => src && history.push(src),
+      ...menu,
+    };
+  }
+  // 有children且为数组，递归处理
+  if (Array.isArray(menu.children)) {
+    menu.children = menu.children.map((item) => {
+      return formatMenu(item);
+    });
+  }
+  return menu;
+};
+
+const menuList = menuData.map((item) => {
+  return formatMenu(item);
+});
+
+export default menuList;

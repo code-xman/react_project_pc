@@ -31,7 +31,7 @@ const IframeOne = () => {
       <iframe
         id="iframe1"
         className={cn('iframe-page')}
-        src="http://192.168.0.247:8080/iframe-page/iframe2"
+        src="http://192.168.0.247:8080/pageList/iframe-page/iframe2"
       ></iframe>
     </div>
   );

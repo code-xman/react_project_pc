@@ -1,12 +1,12 @@
 import { history } from 'umi';
 import { Menu } from 'antd';
-import { menuList } from './menu.js';
+import menuList from './menu.js';
 
 const { SubMenu } = Menu;
 
 interface MenuItem {
-  id: string;
-  name: string;
+  key: string;
+  label: string;
   src?: string;
   children?: MenuItem[];
 }
@@ -25,19 +25,19 @@ const MyMenu = (props: MyMenuProps) => {
   const MySubMenu = (props: { item: MenuItem }) => {
     const { item } = props;
     return (
-      <SubMenu key={item.id} title={item.name}>
+      <SubMenu key={item.key} title={item.label}>
         {item.children &&
           item.children.map((cItem: MenuItem) => {
             if (!cItem.children) {
               return (
-                <Menu.Item key={cItem.id} onClick={() => menuClick(cItem.src)}>
-                  {cItem.name}
+                <Menu.Item key={cItem.key} onClick={() => menuClick(cItem.src)}>
+                  {cItem.label}
                 </Menu.Item>
               );
             } else {
               return (
                 // MySubMenu 这里如果按组件使用会导致没有key
-                // <MySubMenu key={cItem.id} item={cItem}></MySubMenu>
+                // <MySubMenu key={cItem.key} item={cItem}></MySubMenu>
                 MySubMenu({ item: cItem })
               );
             }
@@ -57,8 +57,9 @@ const MyMenu = (props: MyMenuProps) => {
           overflowX: 'hidden',
           transition: 'width .2s',
         }}
+        items={menuList}
       >
-        {menuList.map(
+        {/* {menuList.map(
           (item: MenuItem) => MySubMenu({ item }),
           // MySubMenu 这里如果按组件使用会导致没有key
           // (item: MenuItem) => {
@@ -66,7 +67,7 @@ const MyMenu = (props: MyMenuProps) => {
           //     <MySubMenu key={item.id} item={item}></MySubMenu>
           //   );
           // }
-        )}
+        )} */}
       </Menu>
     </div>
   );

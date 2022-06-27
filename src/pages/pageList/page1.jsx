@@ -3,7 +3,7 @@ import { Button } from 'antd';
 
 export default function Page1() {
   const btnClick = () => {
-    history.push('/home');
+    history.push('/pageList/home');
   };
   return (
     <div>

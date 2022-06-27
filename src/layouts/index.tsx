@@ -1,4 +1,4 @@
-import './css/common.less';
+import '@/pages/css/common.less';
 import './index.less';
 import MyMenu from '@/pages/menu/myMenu';
 import Fab, { FabProps } from '@/pages/pageList/fab';
