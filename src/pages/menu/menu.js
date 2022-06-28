@@ -153,13 +153,24 @@ const menuData = [
     ],
   },
   {
-    label: 'Promise Demo',
-    key: 'Promise',
+    label: 'EventLoop Demo',
+    key: 'EventLoop',
     children: [
       {
-        label: 'promise-1',
-        key: 'promise-1',
-        src: '/pageList/promise/demo-1',
+        label: 'EventLoop-1',
+        key: 'EventLoop-1',
+        src: '/pageList/event-loop/demo-1',
+      },
+    ],
+  },
+  {
+    label: 'precompile Demo',
+    key: 'precompile',
+    children: [
+      {
+        label: 'precompile-1',
+        key: 'precompile-1',
+        src: '/pageList/precompile/demo-1',
       },
     ],
   },
