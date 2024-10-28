@@ -57,9 +57,9 @@ const MyMenu = (props: MyMenuProps) => {
           overflowX: 'hidden',
           transition: 'width .2s',
         }}
-        items={menuList}
+        // items={menuList} // ant design 4.20版本后才支持
       >
-        {/* {menuList.map(
+        {menuList.map(
           (item: MenuItem) => MySubMenu({ item }),
           // MySubMenu 这里如果按组件使用会导致没有key
           // (item: MenuItem) => {
@@ -67,7 +67,7 @@ const MyMenu = (props: MyMenuProps) => {
           //     <MySubMenu key={item.id} item={item}></MySubMenu>
           //   );
           // }
-        )} */}
+        )}
       </Menu>
     </div>
   );

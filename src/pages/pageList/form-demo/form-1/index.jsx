@@ -217,6 +217,16 @@ const FormBase = () => {
       }
     });
   };
+
+  const validatorFn = (rule, value) => {
+    console.log('rule :>> ', rule);
+    console.log('value :>> ', value);
+    if (value && value.length === 1) {
+      return Promise.resolve();
+    }
+    return Promise.reject(new Error('请选择一条条件限制'));
+  };
+
   return (
     <div className={cn('flex-1', 'flex', 'y-center', 'column')}>
       <Form
@@ -243,6 +253,7 @@ const FormBase = () => {
           labelCol={{ span: 2 }}
           wrapperCol={{ span: 22 }}
           tooltip={'最多有一条条件限制'}
+          rules={[{ required: true, validator: validatorFn }]}
         >
           <Checkbox.Group onChange={limitChange}>
             <Checkbox value={'height'}>身高限制</Checkbox>

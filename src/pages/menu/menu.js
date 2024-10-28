@@ -84,6 +84,11 @@ const menuData = [
         key: 'StickyScrollTable',
         src: '/pageList/sticky-scroll-table',
       },
+      {
+        label: 'table1',
+        key: 'table1',
+        src: '/pageList/table1',
+      },
     ],
   },
   {
