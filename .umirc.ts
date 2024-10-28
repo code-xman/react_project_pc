@@ -18,6 +18,8 @@ const myConfig = {
       },
     ]);
   },
+  mfsu: {},
+  webpack5: {},
 };
 
 Object.assign(config, myConfig);
