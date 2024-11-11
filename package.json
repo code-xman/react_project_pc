@@ -5,6 +5,9 @@
     "build": "umi build",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
   },
@@ -12,11 +15,9 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
+    "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
       "prettier --write"
-    ],
-    "*.ts?(x)": [
-      "prettier --parser=typescript --write"
     ]
   },
   "dependencies": {
@@ -28,15 +29,22 @@
     "umi": "^3.5.18"
   },
   "devDependencies": {
+    "@eslint/js": "^9.14.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@umijs/fabric": "^4.0.1",
     "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.5.18",
-    "lint-staged": "^10.0.7",
+    "eslint": "^9.14.0",
+    "eslint-plugin-react": "^7.37.2",
+    "globals": "^15.12.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "monaco-editor": "0.28.1",
     "monaco-editor-webpack-plugin": "^5.0.0",
-    "prettier": "^2.2.0",
+    "prettier": "^3.3.3",
     "typescript": "^4.1.2",
+    "typescript-eslint": "^8.13.0",
     "yorkie": "^2.0.0"
   }
 }
