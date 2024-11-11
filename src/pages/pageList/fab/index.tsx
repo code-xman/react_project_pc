@@ -59,9 +59,9 @@ const Fab = (props: FabProps) => {
     >
       <Popover
         content={content}
-        visible={popVisible}
+        open={popVisible}
         trigger={['hover']}
-        onVisibleChange={handleHoverChange}
+        onOpenChange={handleHoverChange}
       >
         <Avatar icon={<AntDesignOutlined />} />
       </Popover>
