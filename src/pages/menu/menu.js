@@ -57,6 +57,11 @@ const menuData = [
         key: 'useImperativeHandle',
         src: '/pageList/react-hooks/useImperativeHandle',
       },
+      {
+        label: 'highComponent',
+        key: 'highComponent',
+        src: '/pageList/react-hooks/highComponent',
+      },
     ],
   },
   {
