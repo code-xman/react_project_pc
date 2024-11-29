@@ -47,12 +47,15 @@ const MyMenu = (props: MyMenuProps) => {
   };
 
   return (
-    <div style={{ height: '100%' }}>
+    <div
+      className="scroll_thin"
+      style={{ width: fullFalg ? 0 : 260, height: '100%', overflowY: 'auto', flexShrink: 0 }}
+    >
       <Menu
         mode="inline"
         style={{
           width: fullFalg ? 0 : 256,
-          height: '100%',
+          // height: '100%',
           overflowY: 'auto',
           overflowX: 'hidden',
           transition: 'width .2s',

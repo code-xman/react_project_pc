@@ -6,13 +6,7 @@ import cn from 'classnames';
 import { ReactChild, ReactFragment, ReactPortal, useState } from 'react';
 
 export default (props: {
-  children:
-    | boolean
-    | ReactChild
-    | ReactFragment
-    | ReactPortal
-    | null
-    | undefined;
+  children: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined;
 }) => {
   // 是否全屏
   const [fullFalg, setFullFalg] = useState(false);
@@ -22,17 +16,15 @@ export default (props: {
   const fabAttr: FabProps = { fullFalg, setFullFalg };
   return (
     <div className={cn('ys-layout')}>
-      <h1 className={cn('top-title')} style={{ height: fullFalg ? 0 : 40 }}>
+      <h1 className={cn('layout-top-title')} style={{ height: fullFalg ? 0 : 40 }}>
         YS Demo
       </h1>
       <div
-        className={cn('container')}
+        className={cn('layout-container')}
         style={{ height: fullFalg ? 'calc(100% - 4px)' : 'calc(100% - 44px)' }}
       >
         <MyMenu {...myMenuAttr}></MyMenu>
-        <div className={cn('page-box', 'box-border', 'flex')}>
-          {props.children}
-        </div>
+        <div className={cn('layout-page-box', 'box-border', 'flex')}>{props.children}</div>
         <Fab {...fabAttr} />
       </div>
     </div>

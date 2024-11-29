@@ -7,7 +7,6 @@
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
-    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
   },
@@ -15,14 +14,15 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
     "**/*.{js,jsx,tsx,ts,less,md,json}": [
       "prettier --write"
     ]
   },
   "dependencies": {
+    "@ant-design/pro-components": "^2.8.2",
     "@ant-design/pro-layout": "^6.5.0",
     "lodash": "^4.17.21",
+    "moment": "^2.30.1",
     "react": "17.x",
     "react-beautiful-dnd": "^13.1.0",
     "react-dom": "17.x",
