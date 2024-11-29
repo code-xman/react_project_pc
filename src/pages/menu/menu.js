@@ -78,6 +78,11 @@ const menuData = [
         key: 'Form-1',
         src: '/pageList/form-demo/form-1',
       },
+      {
+        label: 'Form-2',
+        key: 'Form-2',
+        src: '/pageList/form-demo/form-2',
+      },
     ],
   },
   {

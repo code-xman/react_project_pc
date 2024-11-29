@@ -1,0 +1,27 @@
+.container {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.form {
+  flex-wrap: wrap;
+  position: relative;
+  .ant-form-item {
+    width: 50%;
+    .ant-picker {
+      width: 100%;
+    }
+  }
+
+  & > div:last-child:not(.ant-form-item) {
+    position: sticky;
+    bottom: 0;
+
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+    width: 100%;
+    justify-content: flex-end;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+  }
+}
