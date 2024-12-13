@@ -143,6 +143,11 @@ const menuData = [
           },
         ],
       },
+      {
+        label: '发布-订阅者模式',
+        key: 'observer',
+        src: '/pageList/func/Observer/observer',
+      },
     ],
   },
   {
