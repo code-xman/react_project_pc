@@ -102,6 +102,22 @@ const menuData = [
     ],
   },
   {
+    label: '设计模式',
+    key: 'design',
+    children: [
+      {
+        label: '发布-订阅者模式',
+        key: 'observer',
+        src: '/pageList/design/observer/Observer',
+      },
+      {
+        label: '单例模式',
+        key: 'singleton',
+        src: '/pageList/design/singleton',
+      },
+    ],
+  },
+  {
     label: 'Editor Demo',
     key: 'Editor',
     children: [
@@ -142,11 +158,6 @@ const menuData = [
             src: '/pageList/func/lodash/debounce',
           },
         ],
-      },
-      {
-        label: '发布-订阅者模式',
-        key: 'observer',
-        src: '/pageList/func/Observer/observer',
       },
     ],
   },
