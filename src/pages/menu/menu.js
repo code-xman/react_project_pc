@@ -65,6 +65,17 @@ const menuData = [
     ],
   },
   {
+    label: 'pro-components',
+    key: 'ProComponents',
+    children: [
+      {
+        label: 'pro-table',
+        key: 'ProTable',
+        src: '/pageList/pro-components/pro-table',
+      },
+    ],
+  },
+  {
     label: '表单 Demo',
     key: 'form',
     children: [
@@ -118,28 +129,6 @@ const menuData = [
     ],
   },
   {
-    label: 'Editor Demo',
-    key: 'Editor',
-    children: [
-      {
-        label: 'Editor',
-        key: 'Editor1',
-        src: '/pageList/editor',
-      },
-    ],
-  },
-  {
-    label: 'Dnd Demo',
-    key: 'Dnd',
-    children: [
-      {
-        label: 'Dnd',
-        key: 'Dnd1',
-        src: '/pageList/dnd',
-      },
-    ],
-  },
-  {
     label: 'func Demo',
     key: 'func',
     children: [
@@ -156,6 +145,32 @@ const menuData = [
             label: 'debounce',
             key: 'debounce',
             src: '/pageList/func/lodash/debounce',
+          },
+        ],
+      },
+      {
+        label: 'My Func',
+        key: 'myFunc',
+        children: [
+          {
+            label: 'Editor Demo',
+            key: 'Editor',
+            src: '/pageList/editor',
+          },
+          {
+            label: 'Dnd Demo',
+            key: 'Dnd',
+            src: '/pageList/dnd',
+          },
+          {
+            label: 'React Player',
+            key: 'reactPlayer',
+            src: '/pageList/func/my-func/react-player',
+          },
+          {
+            label: 'React Grid Layout',
+            key: 'reactGridLayout',
+            src: '/pageList/func/my-func/react-grid-layout',
           },
         ],
       },

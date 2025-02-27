@@ -204,67 +204,69 @@ const Form2 = () => {
         submitter={submitterDom}
         labelCol={{ span: 6 }}
         wrapperCol={{ span: 16 }}
-        className={cn('flex', 'form')}
+        className={cn('form')}
         onFinish={onFinish}
         onReset={onReset}
       >
-        <ProFormText
-          name="name"
-          label="姓名"
-          placeholder="请输入姓名"
-          rules={[{ required: true, message: '请输入姓名' }]}
-        />
-        <ProFormText name="address" label="地址" placeholder="请输入地址" />
-        <ProFormSelect
-          name="sex"
-          label="性别"
-          placeholder="请选择性别"
-          options={sexOptions}
-          onChange={changeSex}
-          rules={[{ required: true, message: '请选择性别' }]}
-        />
-        <ProFormDependency name={['sex']}>
-          {({ sex }) => {
-            return (
-              <ProFormSelect
-                options={optionObj[sex] || []}
-                name="subject"
-                label={`${sexOptions.find((e) => e.value === sex)?.label || ''}科目`}
-                rules={[{ required: true, validator: subjectValidator }]}
-              />
-            );
-          }}
-        </ProFormDependency>
-        <ProFormRadio.Group
-          name="year"
-          label="就读年制"
-          options={[
-            {
-              label: '1年制',
-              value: '1',
-            },
-            {
-              label: '2年制',
-              value: '2',
-            },
-            {
-              label: '3年制',
-              value: '3',
-            },
-          ]}
-          rules={[{ required: true, message: '请选择就读年制' }]}
-          fieldProps={{
-            onChange: changeYear,
-          }}
-        />
-        <ProFormDigit
-          label="就读费用"
-          name="cost"
-          readonly
-          rules={[{ required: true, validator: costValidator }]}
-        />
-        <ProFormDatePicker name="admissionDate" label="入校日期" />
-        <ProFormDateRangePicker name="studyTime" label="就读时间" />
+        <div className={cn('flex', 'flex-1', 'flex-wrap', 'form-content')}>
+          <ProFormText
+            name="name"
+            label="姓名"
+            placeholder="请输入姓名"
+            rules={[{ required: true, message: '请输入姓名' }]}
+          />
+          <ProFormText name="address" label="地址" placeholder="请输入地址" />
+          <ProFormSelect
+            name="sex"
+            label="性别"
+            placeholder="请选择性别"
+            options={sexOptions}
+            onChange={changeSex}
+            rules={[{ required: true, message: '请选择性别' }]}
+          />
+          <ProFormDependency name={['sex']}>
+            {({ sex }) => {
+              return (
+                <ProFormSelect
+                  options={optionObj[sex] || []}
+                  name="subject"
+                  label={`${sexOptions.find((e) => e.value === sex)?.label || ''}科目`}
+                  rules={[{ required: true, validator: subjectValidator }]}
+                />
+              );
+            }}
+          </ProFormDependency>
+          <ProFormRadio.Group
+            name="year"
+            label="就读年制"
+            options={[
+              {
+                label: '1年制',
+                value: '1',
+              },
+              {
+                label: '2年制',
+                value: '2',
+              },
+              {
+                label: '3年制',
+                value: '3',
+              },
+            ]}
+            rules={[{ required: true, message: '请选择就读年制' }]}
+            fieldProps={{
+              onChange: changeYear,
+            }}
+          />
+          <ProFormDigit
+            label="就读费用"
+            name="cost"
+            readonly
+            rules={[{ required: true, validator: costValidator }]}
+          />
+          <ProFormDatePicker name="admissionDate" label="入校日期" />
+          <ProFormDateRangePicker name="studyTime" label="就读时间" />
+        </div>
       </ProForm>
     </div>
   );
