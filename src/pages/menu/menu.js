@@ -73,6 +73,11 @@ const menuData = [
         key: 'ProTable',
         src: '/pageList/pro-components/pro-table',
       },
+      {
+        label: 'pro-form',
+        key: 'ProForm',
+        src: '/pageList/pro-components/pro-form',
+      },
     ],
   },
   {
@@ -80,7 +85,7 @@ const menuData = [
     key: 'form',
     children: [
       {
-        label: 'FormCustom',
+        label: '自定义表单',
         key: 'FormCustom',
         src: '/pageList/form-demo/form-custom',
       },
@@ -89,11 +94,6 @@ const menuData = [
         key: 'Form-1',
         src: '/pageList/form-demo/form-1',
       },
-      {
-        label: 'Form-2',
-        key: 'Form-2',
-        src: '/pageList/form-demo/form-2',
-      },
     ],
   },
   {
@@ -101,14 +101,14 @@ const menuData = [
     key: 'table',
     children: [
       {
-        label: 'StickyScrollTable',
+        label: '粘性滚动表格',
         key: 'StickyScrollTable',
-        src: '/pageList/sticky-scroll-table',
+        src: '/pageList/table-demo/sticky-scroll-table',
       },
       {
-        label: 'table1',
-        key: 'table1',
-        src: '/pageList/table1',
+        label: 'table-1',
+        key: 'Table-1',
+        src: '/pageList/table-demo/table-1',
       },
     ],
   },
@@ -155,12 +155,12 @@ const menuData = [
           {
             label: 'Editor Demo',
             key: 'Editor',
-            src: '/pageList/editor',
+            src: '/pageList/func/my-func/editor',
           },
           {
             label: 'Dnd Demo',
             key: 'Dnd',
-            src: '/pageList/dnd',
+            src: '/pageList/func/my-func/dnd',
           },
           {
             label: 'React Player',
@@ -172,18 +172,22 @@ const menuData = [
             key: 'reactGridLayout',
             src: '/pageList/func/my-func/react-grid-layout',
           },
+          {
+            label: 'iframe1',
+            key: 'iframe1',
+            src: '/pageList/func/my-func/iframe-page/iframe1',
+          },
+          {
+            label: '事件循环机制',
+            key: 'EventLoop',
+            src: '/pageList/func/my-func/event-loop',
+          },
+          {
+            label: '变量提升',
+            key: 'precompile',
+            src: '/pageList/func/my-func/precompile',
+          },
         ],
-      },
-    ],
-  },
-  {
-    label: 'iframe Demo',
-    key: 'iframe',
-    children: [
-      {
-        label: 'iframe1',
-        key: 'iframe1',
-        src: '/pageList/iframe-page/iframe1',
       },
     ],
   },
@@ -195,28 +199,6 @@ const menuData = [
         label: 'ts1',
         key: 'ts1',
         src: '/pageList/ts/ts-test1',
-      },
-    ],
-  },
-  {
-    label: 'EventLoop Demo',
-    key: 'EventLoop',
-    children: [
-      {
-        label: 'EventLoop-1',
-        key: 'EventLoop-1',
-        src: '/pageList/event-loop/demo-1',
-      },
-    ],
-  },
-  {
-    label: 'precompile Demo',
-    key: 'precompile',
-    children: [
-      {
-        label: 'precompile-1',
-        key: 'precompile-1',
-        src: '/pageList/precompile/demo-1',
       },
     ],
   },

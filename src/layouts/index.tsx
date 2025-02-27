@@ -21,7 +21,7 @@ export default (props: {
       </h1>
       <div
         className={cn('layout-container')}
-        style={{ height: fullFalg ? 'calc(100% - 4px)' : 'calc(100% - 44px)' }}
+        style={{ height: fullFalg ? 'calc(100% - 4px)' : 'calc(100% - 40px)' }}
       >
         <MyMenu {...myMenuAttr}></MyMenu>
         <div className={cn('layout-page-box', 'box-border', 'flex')}>{props.children}</div>

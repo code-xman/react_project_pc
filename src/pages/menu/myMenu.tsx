@@ -47,23 +47,21 @@ const MyMenu = (props: MyMenuProps) => {
   };
 
   return (
-    <div
+    <Menu
+      mode="inline"
+      style={{
+        width: fullFalg ? 0 : 256,
+        height: '100%',
+        overflowY: 'auto',
+        overflowX: 'hidden',
+        transition: 'width .5s',
+        flexShrink: 0,
+      }}
       className="scroll_thin"
-      style={{ width: fullFalg ? 0 : 260, height: '100%', overflowY: 'auto', flexShrink: 0 }}
+      items={menuList} // ant design 4.20版本后才支持
     >
-      <Menu
-        mode="inline"
-        style={{
-          width: fullFalg ? 0 : 256,
-          // height: '100%',
-          overflowY: 'auto',
-          overflowX: 'hidden',
-          transition: 'width .2s',
-        }}
-        items={menuList} // ant design 4.20版本后才支持
-      >
-        {/* 低版本用这个逻辑 */}
-        {/* {menuList.map(
+      {/* 低版本用这个逻辑 */}
+      {/* {menuList.map(
           (item: MenuItem) => MySubMenu({ item }),
           // MySubMenu 这里如果按组件使用会导致没有key
           // (item: MenuItem) => {
@@ -72,8 +70,7 @@ const MyMenu = (props: MyMenuProps) => {
           //   );
           // }
         )} */}
-      </Menu>
-    </div>
+    </Menu>
   );
 };
 export default MyMenu;

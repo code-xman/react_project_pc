@@ -57,18 +57,10 @@ const Dnd = () => {
     setTodos(arr);
   };
   return (
-    <DragDropContext
-      onDragStart={onDragStart}
-      onDragUpdate={onDragUpdate}
-      onDragEnd={onDragEnd}
-    >
+    <DragDropContext onDragStart={onDragStart} onDragUpdate={onDragUpdate} onDragEnd={onDragEnd}>
       <Droppable droppableId="droppable">
         {(provided) => (
-          <div
-            ref={provided.innerRef}
-            {...provided.droppableProps}
-            className={cn('droppable-box')}
-          >
+          <div ref={provided.innerRef} {...provided.droppableProps} className={cn('droppable-box')}>
             {todos.map((t, i) => (
               // draggableId 和 key 应为 string；
               <Draggable draggableId={t.id} key={t.id} index={i}>

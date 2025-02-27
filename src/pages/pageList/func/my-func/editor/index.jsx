@@ -10,10 +10,7 @@ import { Button } from 'antd';
 import './style/index.less';
 
 const Editor1 = () => {
-  console.log(
-    'monaco.languages.getLanguages() :>> ',
-    monaco.languages.getLanguages(),
-  );
+  console.log('monaco.languages.getLanguages() :>> ', monaco.languages.getLanguages());
   const monacoRef = useRef(null);
   const [editor, setEditor] = useState();
   const [monacoVal, setMonacoVal] = useState('');
