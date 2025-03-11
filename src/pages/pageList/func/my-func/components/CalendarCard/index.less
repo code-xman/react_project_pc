@@ -1,0 +1,154 @@
+.container {
+  height: 100%;
+}
+
+.detailModal {
+  .content {
+    max-height: calc(100vh - 100px - 54px - 48px - 50px - 22px);
+    overflow: auto;
+    .badge-done {
+      text-decoration: line-through;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  :global {
+    .ant-card-body {
+      flex: 1;
+      padding: 8px 8px 0;
+      overflow: hidden;
+    }
+  }
+
+  .cardExtra {
+    display: flex;
+    align-items: center;
+  }
+
+  .content {
+    position: relative;
+    height: 100%;
+    .legend {
+      position: absolute;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      width: 240px;
+    }
+
+    :global {
+      .ant-picker-calendar {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .ant-picker-calendar-header {
+          padding: 0 0 8px;
+        }
+        .ant-picker-calendar-mode-switch {
+          display: none;
+        }
+        .ant-picker-panel {
+          flex: 1;
+          height: calc(100% - 56px);
+          .ant-picker-date-panel {
+            height: 100%;
+            .ant-picker-body {
+              height: 100%;
+              .ant-picker-content {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                thead,
+                tbody {
+                  display: flex;
+                  flex-direction: column;
+                  tr {
+                    display: flex;
+                    flex: 1;
+                    height: calc(100% / 7);
+                    th,
+                    td {
+                      width: calc(100% / 7);
+                    }
+                  }
+                }
+                tbody {
+                  height: 100%;
+                }
+                .ant-picker-cell {
+                  overflow: hidden;
+                  .ant-picker-calendar-date {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    margin: 0 2px;
+                    padding: 2px 2px 0;
+                  }
+                  .ant-picker-calendar-date-value {
+                    padding-right: 4px;
+                    line-height: 14px;
+                  }
+                  .ant-picker-calendar-date-content {
+                    flex: 1;
+                    overflow: hidden;
+                  }
+                  .events {
+                    width: 100%;
+                    height: 100%;
+                    margin-bottom: 0;
+                    overflow: auto;
+                    li {
+                      .ant-badge {
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        .ant-badge-status-text {
+                          flex: 1;
+                          overflow: hidden;
+                          font-size: 12px;
+                          white-space: nowrap;
+                          text-overflow: ellipsis;
+                        }
+                      }
+                      .badge-done {
+                        text-decoration: line-through;
+                      }
+                    }
+                  }
+                  .min-events {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: flex-end;
+                    align-content: flex-start;
+                    padding: 2px;
+                    max-height: 100%;
+                    overflow: auto;
+                    li {
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                      .ant-badge-status-dot {
+                        width: 8px;
+                        height: 8px;
+                      }
+                      .ant-badge-status-text {
+                        display: none;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.container {
+  height: 100%;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  :global {
+    .ant-card-body {
+      flex: 1;
+      padding: 0;
+    }
+  }
+
+  .cardExtra {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  .item {
+    flex: 1;
+    max-width: 33%;
+    text-align: center;
+    cursor: pointer;
+    .itemTitle {
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .itemContent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+      overflow: hidden;
+      .itemValue {
+        display: inline-block;
+        max-width: calc(100% - 20px);
+        margin-right: 4px;
+        overflow: hidden;
+        letter-spacing: 1px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .itemValue,
+      .itemUnit {
+        color: #c92353;
+        font-weight: 600;
+        font-size: 22px;
+        font-family: cursive;
+      }
+    }
+  }
+}
